@@ -1,0 +1,48 @@
+## OS X
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+## Eclipse Project
+.project
+.metadata
+bin/**
+tmp/**
+tmp/**/*
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.classpath
+.settings/
+.loadpath
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+# Spring specific
+.springBeans
+
+## Project 
+build.properties
+build.xml
+web/WEB-INF/system/container/log4j.properties
+web/WEB-INF/system/container/serverConfigurationWeb.properties
+src/test/java/appTest.properties
+src/test/java/gov/nist/eeel/pms/serverConfigurationTest*
+src/test/java/log4j.properties
+logs/
+runtime/
+project/
