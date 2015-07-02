@@ -28,8 +28,9 @@ sudo chmod -R g+w /var/lib/tomcat7/
 #cd h2/bin
 #chmod +x h2.sh
 
+sudo rm -r /vagrant/project
+mkdir /vagrant/project
 cd /vagrant/project
-sudo rm -r webapp
 mkdir webapp
 git clone https://github.com/haffo/hit-core.git webapp/hit-core
 git clone https://github.com/haffo/hit-core-hl7v2.git webapp/hit-core-hl7v2
