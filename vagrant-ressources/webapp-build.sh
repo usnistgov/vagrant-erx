@@ -3,7 +3,7 @@ npm install
 bower install
 grunt build
 mkdir ~/.m2
-mv /vagrant/vagrant-ressources/settings.xml ~/.m2
+cp /vagrant/vagrant-ressources/settings.xml ~/.m2
 
 cd /vagrant/project/webapp/hit-core
 mvn clean install -DskipTests
