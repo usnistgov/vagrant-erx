@@ -23,5 +23,5 @@ sudo dpkg -i sbt.deb
 sudo apt-get update
 sudo apt-get install -y sbt
 
-echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/bin" >> /home/vagrant/.bashrc
-echo "\$PATH=\$PATH:\$JAVA_HOME" >> /home/vagrant/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
+echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc

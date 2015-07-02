@@ -36,5 +36,5 @@ git clone https://github.com/haffo/hit-core.git webapp/hit-core
 git clone https://github.com/haffo/hit-core-hl7v2.git webapp/hit-core-hl7v2
 git clone https://github.com/haffo/hit-base-tool.git webapp/hit-base-tool
 
-echo "JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64/bin" >> /home/vagrant/.bashrc
-echo "\$PATH=\$PATH:\$JAVA_HOME" >> /home/vagrant/.bashrc
+echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
+echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
