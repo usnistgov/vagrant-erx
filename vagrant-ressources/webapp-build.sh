@@ -20,5 +20,5 @@ sudo chown tomcat7 hit-base-tool.war
 sudo chmod +r hit-base-tool.war
 sudo service tomcat7 restart
 
-cd ~/h2/bin
-./h2.sh
+#cd ~/h2/bin
+#./h2.sh

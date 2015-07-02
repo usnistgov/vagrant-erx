@@ -6,6 +6,7 @@ sudo apt-get install -y g++
 
 sudo apt-get install -y openjdk-7-jdk
 
+mkdir /vagrant/project
 cd /vagrant/project
 sudo rm -r validation
 mkdir validation
