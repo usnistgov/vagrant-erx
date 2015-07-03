@@ -9,6 +9,8 @@ cd /vagrant/project/webapp/hit-core
 mvn clean install -DskipTests
 cd /vagrant/project/webapp/hit-core-hl7v2
 mvn clean install -DskipTests
+cd /vagrant/project/webapp/hit-resource-bundle
+mvn clean install -DskipTests
 cd /vagrant/project/webapp/hit-base-tool
 mvn clean install -DskipTests
 
