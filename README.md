@@ -14,7 +14,7 @@ Before using this project, you need to install this tools :
 
 You'll also need to get the ubuntu server box configured with the NIST security script from the network disk :
 
-	smb://itlnas.nist.gov/*folder_name*/ubuntu64-nist.box
+	smb://itlnas.nist.gov/HIT/Vagrant/ubuntu64-nist.box
 
 Copy this file in your home folder on your hard drive, open your terminal and execute the following command line :
 
