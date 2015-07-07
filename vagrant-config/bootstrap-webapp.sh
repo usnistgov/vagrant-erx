@@ -15,12 +15,19 @@ sudo apt-get install -y maven
 #    sudo debconf-set-selections
 #sudo apt-get install -y oracle-java7-installer
 sudo apt-get install -y openjdk-7-jdk
-sudo apt-get install -y tomcat7
 
-sudo chgrp -R tomcat7 /etc/tomcat7
-sudo chmod -R g+w /etc/tomcat7 
-sudo chgrp -R tomcat7 /var/lib/tomcat7/
-sudo chmod -R g+w /var/lib/tomcat7/
+#Tomcat installation - Reference https://www.mulesoft.com/tcat/tomcat-linux#sthash.18qlAj55.dpuf
+
+cd /tmp
+wget http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz
+tar xvzf apache-tomcat-7.0.63.tar.gz
+sudo mv apache-tomcat-7.0.63 /var/lib/tomcat7
+sudo cp /vagrant/vagrant-ressources/tomcat7 /etc/init.d/
+sudo chmod 755 /etc/init.d/tomcat7
+sudo update-rc.d tomcat7 defaults
+sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+echo "org.apache.jasper.compiler.TldLocationsCache.level = FINE" >> /var/lib/tomcat7/conf/logging.properties
+
 #cd ~/
 #wget http://www.h2database.com/h2-2015-04-10.zip
 #unzip h2-2015-04-10.zip
@@ -39,3 +46,8 @@ git clone https://github.com/haffo/hit-example-resource-bundle.git webapp/hit-re
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
+echo "export CATALINA_HOME=/var/lib/tomcat7" >> /home/vagrant/.bashrc
+
+
+mkdir /home/vagrant/.m2
+cp /vagrant/vagrant-ressources/settings.xml /home/vagrant/.m2
