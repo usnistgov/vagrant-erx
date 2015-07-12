@@ -46,6 +46,12 @@ To build the webapp execute :
 	guest $ cd /vagrant/vagrant-resources
 	guest $ bash build_webapp.sh
 	
+This script is gonna build the frontend, compile the webapp and deploy it on the tomcat server listening on port 8080. Open a browser and go to [http://192.168.0.101:8080/hit-base-tool](http://192.168.0.101:8080/hit-base-tool). If the server doesn't seem to respond from your browser, execute those commands from the guest virtual machine :
+
+	guest $ sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+	guest $ sudo service tomcat7 restart
+	
+
 ### Build the validation engine
 
 Work in progress...

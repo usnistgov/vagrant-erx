@@ -47,7 +47,7 @@ git clone https://github.com/haffo/hit-example-resource-bundle.git webapp/hit-re
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
 echo "export CATALINA_HOME=/var/lib/tomcat7" >> /home/vagrant/.bashrc
-
+echo "iptables -A INPUT -p tcp --dport 8080 -j ACCEPT" >> /home/vagrant/.bashrc
 
 mkdir /home/vagrant/.m2
 cp /vagrant/vagrant-ressources/settings.xml /home/vagrant/.m2
