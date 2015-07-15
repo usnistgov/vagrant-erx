@@ -3,6 +3,7 @@ sudo apt-get update -y
 sudo apt-get install -y git
 sudo apt-get install -y make
 sudo apt-get install -y g++
+sudo apt-get install -y maven
 
 sudo apt-get install -y openjdk-7-jdk
 
@@ -25,3 +26,4 @@ sudo apt-get install -y sbt
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
+echo "export MAVEN_OPTS=\"-Dmaven.repo.local=/vagrant/.m2\"" >> /home/vagrant/.bashrc
