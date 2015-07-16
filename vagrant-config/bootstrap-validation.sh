@@ -27,6 +27,9 @@ sudo apt-get install -y sbt
 sudo cp /vagrant/vagrant-ressources/.nexusCredentials /home/vagrant
 sudo chmod 755 /home/vagrant/.nexusCredentials
 
+sudo rm -r /vagrant/project/validation
+git clone https://github.com/hl7-tools/v2-validation-legacy.git /vagrant/project/validation
+
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
 echo "export MAVEN_OPTS=\"-Dmaven.repo.local=/vagrant/.m2\"" >> /home/vagrant/.bashrc
