@@ -24,6 +24,9 @@ sudo dpkg -i sbt.deb
 sudo apt-get update
 sudo apt-get install -y sbt
 
+sudo cp /vagrant/vagrant-ressources/.nexusCredentials /home/vagrant
+sudo chmod 755 /home/vagrant/.nexusCredentials
+
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
 echo "export MAVEN_OPTS=\"-Dmaven.repo.local=/vagrant/.m2\"" >> /home/vagrant/.bashrc
