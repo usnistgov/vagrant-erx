@@ -28,9 +28,10 @@ First, you'll need to clone the project.
 
 	$ git clone https://vm-070.nist.gov/git/healthcare-it/erx/vagrant-erx.git
 	
-Then, you should be able to generate and connect to the VMs :
+Then, create the .m2 repository (maven shared repository between the VMs) and you should be able to create and connect to the VMs :
 
-	$ vagrant up
+	$ mkdir .m2
+    $ vagrant up
 	$ vagrant ssh [machine_name]
 
 There is two vm, **webapp** and **validation**. The first one contains the webapp and the second one the validation engine.
