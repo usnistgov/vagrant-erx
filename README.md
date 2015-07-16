@@ -36,9 +36,23 @@ Then, create the .m2 repository (maven shared repository between the VMs) and yo
 
 There is two vm, **webapp** and **validation**. The first one contains the webapp and the second one the validation engine.
 
-### Build the webapp
-
 *Note : to avoid misunderstanding, commands that begin by host have to be executed on your host machine, and those that begin by host have to by executed on the virtual machine through ssh*
+
+### Build the validation engine
+
+The first time you build the validation, you have to edit the file "/vagrant/project/validation/project/Dependencies.scala" and add those lines in the "resolutionRepos" var (the local maven repository already exist, erase the line and put those ones instead) :
+
+    "NIST nexus" at "http://vm-070.nist.gov:8081/nexus/content/groups/public",
+    "Local Maven Repository" at "file:///vagrant/.m2/repository"
+
+Then, to build the validation, execute :
+
+	host $ vagrant up
+	host $ vagrant ssh webapp
+	guest $ cd /vagrant/vagrant-resources
+	guest $ bash build_validation.sh
+
+### Build the webapp
 
 To build the webapp execute :
 
@@ -51,11 +65,6 @@ This script is gonna build the frontend, compile the webapp and deploy it on the
 
 	guest $ sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 	guest $ sudo service tomcat7 restart
-	
-
-### Build the validation engine
-
-Work in progress...
 
 ### Useful vagrant commands
 
