@@ -1,2 +1,2 @@
 cd /vagrant/project/validation
-sbt clean install
+sbt clean compile
