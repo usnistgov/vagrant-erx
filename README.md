@@ -49,7 +49,7 @@ Then, to build the validation, execute :
 
 	host $ vagrant up
 	host $ vagrant ssh webapp
-	guest $ cd /vagrant/vagrant-resources
+	guest $ cd /vagrant/vagrant-ressources
 	guest $ bash build_validation.sh
 
 ### Build the webapp
@@ -58,13 +58,20 @@ To build the webapp execute :
 
 	host $ vagrant up
 	host $ vagrant ssh webapp
-	guest $ cd /vagrant/vagrant-resources
+	guest $ cd /vagrant/vagrant-ressources
 	guest $ bash build_webapp.sh
 	
 This script is gonna build the frontend, compile the webapp and deploy it on the tomcat server listening on port 8080. Open a browser and go to [http://192.168.0.101:8080/hit-base-tool](http://192.168.0.101:8080/hit-base-tool). If the server doesn't seem to respond from your browser, execute those commands from the guest virtual machine :
 
 	guest $ sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 	guest $ sudo service tomcat7 restart
+
+### Build outside NIST
+
+If you already cloned the repository and have all the dependencies in the .m2 repository (you do if you already built the jars or if yu got if from another VM), you can force maven to use the jars you have in local instead of checking the NIST nexus first. To do so, type this command from the VM :
+
+	$ sudo cp /vagrant/vagrant-ressources/settings-outside-nist.xml /vagrant/.m2/settings.xml
+	
 
 ### Useful vagrant commands
 
