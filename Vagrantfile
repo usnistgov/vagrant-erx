@@ -14,4 +14,10 @@ Vagrant.configure(2) do |config|
         validation.vm.provision :shell, :path => "vagrant-config/bootstrap-validation.sh"
         validation.vm.network :private_network, ip: "192.168.0.102"
     end
+
+    config.vm.define "xmlutil" do |xmlutil|
+        xmlutil.vm.box = "ubuntu64-nist"
+        xmlutil.vm.provision :shell, :path => "vagrant-config/bootstrap-xml-util.sh"
+        xmlutil.vm.network :private_network, ip: "192.168.0.103"
+    end
 end
