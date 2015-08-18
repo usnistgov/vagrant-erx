@@ -46,3 +46,6 @@ src/test/java/log4j.properties
 logs/
 runtime/
 project/
+
+.ivy2/
+.vagrant/
