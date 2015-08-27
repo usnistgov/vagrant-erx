@@ -14,8 +14,8 @@ cd /vagrant/project
 if [ -d "validation" ]; then 
 	sudo rm -r validation
 fi
-#mkdir validation
-git clone https://github.com/usnistgov/v2-validation-legacy.git validation
+mkdir validation
+git clone -b ncpdp https://github.com/usnistgov/v2-validation-legacy.git validation
 
 sudo apt-get install -y curl
 # sudo apt-get remove scala-library scala
@@ -33,8 +33,8 @@ sudo apt-get install -y --force-yes sbt
 sudo cp /vagrant/vagrant-ressources/.nexusCredentials /home/vagrant
 sudo chmod 755 /home/vagrant/.nexusCredentials
 
-# sudo rm -r /vagrant/project/validation
-# git clone https://github.com/usnistgov/v2-validation-legacy.git /vagrant/project/validation
+#sudo rm -r /vagrant/project/validation
+#git clone -b ncpdp https://github.com/usnistgov/v2-validation-legacy.git /vagrant/project/validation
 
 echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bashrc
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
