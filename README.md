@@ -38,6 +38,16 @@ There is two vm, **webapp** and **validation**. The first one contains the webap
 
 *Note : to avoid misunderstanding, commands that begin by host have to be executed on your host machine, and those that begin by host have to by executed on the virtual machine through ssh*
 
+### Build XML-UTILS
+
+To build XML-UTILS, execute :
+
+	host $ vagrant up
+	host $ vagrant ssh xmlutil
+	guest $ cd /vagrant/vagrant-ressources
+	guest $ bash build_xmlutil.sh
+
+
 ### Build the validation engine
 
 The first time you build the validation, you have to edit the file "/vagrant/project/validation/project/Dependencies.scala" and add those lines in the "resolutionRepos" var (the local maven repository already exist, erase the line and put those ones instead) :
