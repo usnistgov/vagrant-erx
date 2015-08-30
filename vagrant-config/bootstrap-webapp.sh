@@ -19,7 +19,8 @@ sudo apt-get install -y openjdk-7-jdk
 #Tomcat installation - Reference https://www.mulesoft.com/tcat/tomcat-linux#sthash.18qlAj55.dpuf
 
 cd /tmp
-wget http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz
+#wget http://mirror.cc.columbia.edu/pub/software/apache/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz
+wget http://archive.apache.org/dist/tomcat/tomcat-7/v7.0.63/bin/apache-tomcat-7.0.63.tar.gz
 tar xvzf apache-tomcat-7.0.63.tar.gz
 sudo mv apache-tomcat-7.0.63 /var/lib/tomcat7
 sudo cp /vagrant/vagrant-ressources/tomcat7 /etc/init.d/
@@ -35,9 +36,13 @@ echo "org.apache.jasper.compiler.TldLocationsCache.level = FINE" >> /var/lib/tom
 #cd h2/bin
 #chmod +x h2.sh
 
-mkdir /vagrant/project
+if [ ! -d "/vagrant/project" ]; then 
+	mkdir /vagrant/project
+fi
 cd /vagrant/project
-sudo rm -r webapp
+if [ ! -d "/vagrant/webapp" ]; then 
+	sudo rm -r webapp
+fi
 mkdir webapp
 git clone https://github.com/haffo/hit-core.git webapp/hit-core
 git clone https://github.com/usnistgov/hit-core-erx webapp/hit-core-erx
