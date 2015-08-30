@@ -49,3 +49,4 @@ project/
 
 .ivy2/
 .vagrant/
+.m2
