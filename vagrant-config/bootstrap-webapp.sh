@@ -28,6 +28,10 @@ sudo chmod 755 /etc/init.d/tomcat7
 sudo update-rc.d tomcat7 defaults
 sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
 echo "org.apache.jasper.compiler.TldLocationsCache.level = FINE" >> /var/lib/tomcat7/conf/logging.properties
+sudo chown -R vagrant:vagrant /var/lib/tomcat7
+sudo chmod -R 755 /var/lib/tomcat7
+
+
 
 #cd ~/
 #wget http://www.h2database.com/h2-2015-04-10.zip
