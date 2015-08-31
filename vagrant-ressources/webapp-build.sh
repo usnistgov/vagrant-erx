@@ -21,11 +21,12 @@ function buildJars {
 }
 
 function deployWar {
-    sudo rm /var/lib/tomcat7/webapps/hit-erx-tool.war
-    sudo rm -r /var/lib/tomcat7/webapps/hit-erx-tool
-    sudo cp /vagrant/project/webapp/hit-erx-tool/hit-base-web/target/hit-erx-tool.war /var/lib/tomcat7/webapps/
+    sudo rm /var/lib/tomcat7/webapps/hit-base-tool.war
+    sudo rm -r /var/lib/tomcat7/webapps/hit-base-tool
+    sudo cp /vagrant/project/webapp/hit-erx-tool/hit-base-web/target/hit-base-tool.war /var/lib/tomcat7/webapps/
     cd /var/lib/tomcat7/webapps/
-    sudo chmod +r hit-erx-tool.war
+    sudo chmod 755 hit-base-tool.war
+    sudo chown vagrant:vagrant hit-base-tool.war
     sudo service tomcat7 restart
 }
 
