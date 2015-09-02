@@ -6,6 +6,7 @@ sudo apt-get install -y g++
 sudo apt-get install -y nodejs npm --force-yes
 sudo ln -s /usr/bin/nodejs /usr/bin/node
 sudo apt-get install -y maven
+sudo npm install -g bower grunt grunt-cli
 #sudo apt-get install -y python-software-properties
 #sudo add-apt-repository ppa:webupd8team/java
 #sudo apt-get update -y
