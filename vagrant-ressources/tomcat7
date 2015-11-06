@@ -7,8 +7,11 @@ sh $CATALINA_HOME/bin/startup.sh
 stop() {
 sh $CATALINA_HOME/bin/shutdown.sh
 }
+debug() {
+sh $CATALINA_HOME/bin/catalina.sh jpda start
+}
 case $1 in
-  start|stop) $1;;
+  start|stop|debug) $1;;
   restart) stop; start;;
-  *) echo "Run as $0 <start|stop|restart>"; exit 1;;
+  *) echo "Run as $0 <start|debug|stop|restart>"; exit 1;;
 esac

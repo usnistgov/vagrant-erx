@@ -50,8 +50,11 @@ if [ ! -d "/vagrant/webapp" ]; then
 fi
 mkdir webapp
 git clone https://github.com/haffo/hit-core.git webapp/hit-core
-git clone https://github.com/usnistgov/hit-core-erx webapp/hit-core-erx
-git clone https://github.com/usnistgov/hit-erx-tool.git webapp/hit-erx-tool
+git clone -b maj-chg https://github.com/usnistgov/hit-erx-tool.git /vagrant/project/webapp/hit-erx-tool
+git clone https://github.com/usnistgov/hit-core-edi.git webapp/hit-core-edi
+git clone https://github.com/usnistgov/hit-core-xml.git webapp/hit-core-xml
+git clone -b ncpdp https://github.com/usnistgov/unified-report.git /vagrant/project/webapp/unified-report
+git clone https://github.com/usnistgov/hit-erx-tool-config.git webapp/hit-erx-tool-config
 #TODO : uncomment this line when the resource bundle will be public
 #git clone https://github.com/usnistgov/erx-resource-bundle.git webapp/erx-resource-bundle
 
