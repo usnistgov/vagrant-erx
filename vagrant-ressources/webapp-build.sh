@@ -6,13 +6,23 @@ function buildFrontEnd {
 }
 
 function buildJars {
+
+    cd /vagrant/project/webapp/erx-resource-bundle
+    #git pull
+    mvn clean install -DskipTests
+    cd /vagrant/project/webapp/unified-report/unified-report
+    #git pull
+    mvn clean install -DskipTests
     cd /vagrant/project/webapp/hit-core
     #git pull
     mvn clean install -DskipTests
-    cd /vagrant/project/webapp/hit-core-erx
+    cd /vagrant/project/webapp/hit-core-edi
     #git pull
     mvn clean install -DskipTests
-    cd /vagrant/project/webapp/erx-resource-bundle
+    cd /vagrant/project/webapp/hit-core-xml
+    #git pull
+    mvn clean install -DskipTests
+    cd /vagrant/project/webapp/hit-erx-tool-config
     #git pull
     mvn clean install -DskipTests
     cd /vagrant/project/webapp/hit-erx-tool
@@ -21,12 +31,14 @@ function buildJars {
 }
 
 function deployWar {
+    sudo service tomcat7 stop
     sudo rm /var/lib/tomcat7/webapps/hit-base-tool.war
     sudo rm -r /var/lib/tomcat7/webapps/hit-base-tool
     sudo cp /vagrant/project/webapp/hit-erx-tool/hit-base-web/target/hit-base-tool.war /var/lib/tomcat7/webapps/
     sudo chmod 755 /var/lib/tomcat7/webapps/hit-base-tool.war
     sudo chown vagrant:vagrant /var/lib/tomcat7/webapps/hit-base-tool.war
-    sudo service tomcat7 restart
+    sudo iptables -A INPUT -p tcp --dport 8080 -j ACCEPT
+    sudo iptables -A INPUT -p tcp --dport 8000 -j ACCEPT
 }
 
 if [ $# == 1 ]; then
