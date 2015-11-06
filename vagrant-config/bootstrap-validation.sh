@@ -40,3 +40,4 @@ echo "export JAVA_HOME=/usr/lib/jvm/java-7-openjdk-amd64" >> /home/vagrant/.bash
 echo "export PATH=\$PATH:\$JAVA_HOME/bin" >> /home/vagrant/.bashrc
 echo "export MAVEN_OPTS=\"-Dmaven.repo.local=/vagrant/.m2\"" >> /home/vagrant/.bashrc
 echo "export SBT_OPTS=\"\$SBT_OPTS -Dsbt.ivy.home=/vagrant/.ivy2 -Divy.home=/vagrant/.ivy2\"" >> /home/vagrant/.bashrc
+cp /vagrant/vagrant-ressources/ivysettings.xml /vagrant/.ivy2
