@@ -7,6 +7,10 @@ Vagrant.configure(2) do |config|
         webapp.vm.box = "ubuntu64-nist"
         webapp.vm.provision :shell, :path => "vagrant-config/bootstrap-webapp.sh"
         webapp.vm.network :private_network, ip: "192.168.0.101"
+        webapp.vm.network :forwarded_port, guest: 8080, host: 8081
+	webapp.vm.provider :virtualbox do |vb|
+    	vb.customize ["modifyvm", :id, "--memory", 2048]
+    end
     end
 
     config.vm.define "validation" do |validation|
