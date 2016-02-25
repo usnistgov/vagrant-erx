@@ -1,10 +1,3 @@
-function buildFrontEnd {
-    cd /vagrant/project/webapp/hit-erx-tool/hit-base-web/client
-    npm install
-    bower install
-    grunt build
-}
-
 function buildJars {
 
     cd /vagrant/project/webapp/erx-resource-bundle
@@ -22,6 +15,9 @@ function buildJars {
     cd /vagrant/project/webapp/hit-core-xml
     #git pull
     mvn clean install -DskipTests
+    cd /vagrant/project/webapp/message-utils
+    #git pull
+    mvn clean install -DskipTests
     cd /vagrant/project/webapp/hit-erx-tool-config
     #git pull
     mvn clean install -DskipTests
@@ -30,10 +26,16 @@ function buildJars {
     mvn clean install -DskipTests
 }
 
+function buildWebapp {
+    cd /vagrant/project/webapp/hit-erx-tool
+    #git pull
+    mvn clean install -DskipTests
+}
+
 function deployWar {
     sudo service tomcat7 stop
     sudo rm /var/lib/tomcat7/webapps/hit-base-tool.war
-    sudo rm -r /var/lib/tomcat7/webapps/hit-base-tool
+    sudo rm -R /var/lib/tomcat7/webapps/hit-base-tool
     sudo cp /vagrant/project/webapp/hit-erx-tool/hit-base-web/target/hit-base-tool.war /var/lib/tomcat7/webapps/
     sudo chmod 755 /var/lib/tomcat7/webapps/hit-base-tool.war
     sudo chown vagrant:vagrant /var/lib/tomcat7/webapps/hit-base-tool.war
@@ -43,25 +45,21 @@ function deployWar {
 
 if [ $# == 1 ]; then
     case "$1" in
-        '-onlyFrontend')
-            buildFrontEnd
-            ;;
         '-onlyJars')
             buildJars
             ;;
         '-onlyDeploy')
             deployWar
             ;;
-        '-noFrontend')
-            buildJars
+        '-onlyWebapp')
+            buildWebapp
             deployWar
             ;;
         '-help')
             echo 'Help - Webapp build options (use bash webapp-build -[option]) :'
-            echo 'Option -onlyFrontend to build only the AngularJS part of the webapp'
             echo 'Option -onlyJars to build only the jars and the war'
             echo 'Option -onlyDeploy to only deploy the war'
-            echo 'Option -noFrontend to build the jars and the war, and then deploy the war'
+            echo 'Option -onlyWebapp to build the webapp'
             echo 'Option -help to display the help'
             ;;
         *)
@@ -70,7 +68,6 @@ if [ $# == 1 ]; then
     esac
 else
     #build everything
-    buildFrontEnd
     buildJars
     deployWar
 fi
