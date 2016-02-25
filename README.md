@@ -47,7 +47,6 @@ To build XML-UTILS, execute :
 	guest $ cd /vagrant/vagrant-ressources
 	guest $ bash build_xmlutil.sh
 
-
 ### Build the validation engine
 
 The first time you build the validation, you have to edit the file "/vagrant/project/validation/project/Dependencies.scala" and add those lines in the "resolutionRepos" var (the local maven repository already exist, erase the line and put those ones instead) :
@@ -101,3 +100,6 @@ Stop the VMs :
 	$ vagrant halt
 	# Stop a specific VM : vagrant halt [machine_name]
 	
+### H2 server mode
+
+To debug the H2 database, you can run it as a server using tpc. Use the script */vagrant/vagrant-resources/startH2.sh* to start H2 in server mode. You'll need to add the jar *h2-1.4.190.jar* in the */vagrant/vagrant-resources/* directory.
