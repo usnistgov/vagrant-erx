@@ -45,7 +45,7 @@ if [ ! -d "/vagrant/project" ]; then
 	mkdir /vagrant/project
 fi
 cd /vagrant/project
-if [ ! -d "/vagrant/webapp" ]; then 
+if [ ! -d "/vagrant/project/webapp" ]; then 
 	sudo rm -r webapp
 fi
 mkdir webapp
