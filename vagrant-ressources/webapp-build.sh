@@ -1,35 +1,46 @@
 function buildJars {
-
-    cd /vagrant/project/webapp/erx-resource-bundle
-    #git pull
-    mvn clean install -DskipTests
+    cd /vagrant/project/xmlvalidation/schematronValidation
+    mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/xmlvalidation/validation-report
+    mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/xmlvalidation/hit-xml-validation
+    mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/unified-report/unified-report
     #git pull
-    mvn clean install -DskipTests
-    cd /vagrant/project/webapp/hit-core
+    mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/webapp/hit-core 
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/hit-core-edi
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/hit-core-xml
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/message-utils
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/webapp/erx-resource-bundle
+    #git pull
+    #mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/webapp/ncpdp-erx-resource-bundle
+    #git pull
+    mvn clean install -Dmaven.test.skip=true --quiet
+    cd /vagrant/project/webapp/VitalRecordsCDA
+    #git pull
+    #mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/hit-erx-tool-config
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
     cd /vagrant/project/webapp/hit-erx-tool
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
 }
 
 function buildWebapp {
     cd /vagrant/project/webapp/hit-erx-tool
     #git pull
-    mvn clean install -DskipTests
+    mvn clean install -Dmaven.test.skip=true --quiet
 }
 
 function deployWar {
