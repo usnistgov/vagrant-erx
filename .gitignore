@@ -50,3 +50,6 @@ project/
 .ivy2/
 .vagrant/
 .m2
+vagrant-ressources/target
+vagrant-ressources/apache-tomcat-8.5.15
+vagrant-ressources/Poster

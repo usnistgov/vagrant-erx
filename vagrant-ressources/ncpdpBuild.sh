@@ -3,24 +3,7 @@ echo "Building ERX Resource Bundle"
 start=$SECONDS
 cd /vagrant/project/webapp/erx-resource-bundle
 #git pull
-#mvn clean install -Dmaven.test.skip=true --quiet
-end=$SECONDS
-elapsed=$((end - start))
-printf 'Elapsed %d:%02d:%02d\n' \
-       $((elapsed / 3600)) $((elapsed / 60 % 60)) $((elapsed % 60))
-echo "Building NCPDP Resource Bundle"
-start=$SECONDS
-cd /vagrant/project/webapp/ncpdp-erx-resource-bundle
-#git pull
-#mvn clean install -Dmaven.test.skip=true --quiet
-end=$SECONDS
-elapsed=$((end - start))
-printf 'Elapsed %d:%02d:%02d\n' \
-       $((elapsed / 3600)) $((elapsed / 60 % 60)) $((elapsed % 60))
-echo "Building Vital Record CDA Resource Bundle"
-start=$SECONDS
-cd /vagrant/project/webapp/VitalRecordsCDA
-#git pull
+
 #mvn clean install -Dmaven.test.skip=true --quiet
 end=$SECONDS
 elapsed=$((end - start))
@@ -39,7 +22,7 @@ echo "Building hit-core-edi (2/5)"
 start=$SECONDS
 cd /vagrant/project/webapp/hit-core-edi
 #git pull
-mvn clean install -Dmaven.test.skip=true --quiet
+#mvn clean install -Dmaven.test.skip=true --quiet
 end=$SECONDS
 elapsed=$((end - start))
 printf 'Elapsed %d:%02d:%02d\n' \
@@ -48,23 +31,23 @@ echo "Building hit-core-xml (3/5)"
 start=$SECONDS
 cd /vagrant/project/webapp/hit-core-xml
 #git pull
-mvn clean install -Dmaven.test.skip=true --quiet
+#mvn clean install -Dmaven.test.skip=true --quiet
 end=$SECONDS
 elapsed=$((end - start))
 printf 'Elapsed %d:%02d:%02d\n' \
        $((elapsed / 3600)) $((elapsed / 60 % 60)) $((elapsed % 60))
-echo "Building hit-erx-tool-config (4/5)"
+echo "Building hit-erx-tool-config-ncpdp (4/5)"
 start=$SECONDS
-cd /vagrant/project/webapp/hit-erx-tool-config
+cd /vagrant/project/webapp/hit-erx-tool-config-ncpdp
 #git pull
 mvn clean install -DskipTests --quiet
 end=$SECONDS
 elapsed=$((end - start))
 printf 'Elapsed %d:%02d:%02d\n' \
        $((elapsed / 3600)) $((elapsed / 60 % 60)) $((elapsed % 60))
-echo "Building hit-erx-tool (5/5)"
+echo "Building hit-base-tool-ncpdp (5/5)"
 start=$SECONDS
-cd /vagrant/project/webapp/hit-erx-tool
+cd /vagrant/project/webapp/hit-base-tool-ncpdp
 #git pull
 mvn clean install -DskipTests --quiet
 end=$SECONDS

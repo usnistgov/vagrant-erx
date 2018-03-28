@@ -10,6 +10,7 @@ Vagrant.configure(2) do |config|
         webapp.vm.network :forwarded_port, guest: 8080, host: 8081
         webapp.vm.network :forwarded_port, guest: 8443, host: 8443
         webapp.vm.network :forwarded_port, guest: 8000, host: 8000
+        webapp.vm.network :forwarded_port, guest: 3306, host: 3307
         webapp.vm.network :forwarded_port, guest: 9000, host: 9000
 	webapp.vm.provider :virtualbox do |vb|
     	vb.customize ["modifyvm", :id, "--memory", 2048]
